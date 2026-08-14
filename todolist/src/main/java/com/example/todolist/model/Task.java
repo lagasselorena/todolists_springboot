@@ -17,31 +17,16 @@ public class Task {
     private String title;
     private String description;
     private boolean completed;
+
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    public Priority getPriority() {
-        return priority;
+    public Long getId() {
+        return id;
     }
 
-    public void setPriority(Priority priority) {
-        this.priority = priority;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -52,11 +37,27 @@ public class Task {
         this.title = title;
     }
 
-    public Long getId() {
-        return id;
+    public String getDescription() {
+        return description;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 }

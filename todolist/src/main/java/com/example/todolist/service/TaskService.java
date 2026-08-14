@@ -22,4 +22,22 @@ public class TaskService {
     public Task criar(Task task) {
         return repository.save(task);
     }
+
+    public Task atualizar(Long id, Task taskAtualizada) {
+        Task task = repository.findById(id).orElseThrow();
+
+        task.setTitle(taskAtualizada.getTitle());
+        task.setDescription(taskAtualizada.getDescription());
+        task.setCompleted(taskAtualizada.isCompleted());
+        task.setPriority(taskAtualizada.getPriority());
+
+        return repository.save(task);
+    }
+
+    public void deletar(Long id) {
+        if (!repository.existsById(id)) {
+            throw new RuntimeException("Tarefa não encontrada");
+        }
+        repository.deleteById(id);
+    }
 }
